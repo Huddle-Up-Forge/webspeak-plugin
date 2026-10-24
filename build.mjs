@@ -1,0 +1,11 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const read = file => readFile(new URL(`examples/watch-together/${file}`,import.meta.url),'utf8');
+const manifest=JSON.parse(await read('manifest.json'));
+const pack={manifest,html:await read('panel.html'),script:await read('player.js'),styles:{light:await read('light.css'),dark:await read('dark.css')}};
+const bytes=Buffer.from(JSON.stringify(pack));
+if(bytes.length>512*1024)throw new Error('Package exceeds 512 KiB');
+await mkdir(new URL('packages/',import.meta.url),{recursive:true});
+await writeFile(new URL('packages/watch-together.wplugin',import.meta.url),bytes);
+await writeFile(new URL('plugin.json',import.meta.url),JSON.stringify({manifest,package:{ref:'v1.0.0',path:'packages/watch-together.wplugin',sha256:createHash('sha256').update(bytes).digest('hex')}},null,2)+'\n');
+console.log(`Built ${manifest.id} ${manifest.version}, ${bytes.length} bytes`);

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "community.watch-together",
+      "repository": "https://github.com/Huddle-Up-Forge/webspeak-plugin",
+      "metadataPath": "plugin.json"
+    }
+  ]
+}
