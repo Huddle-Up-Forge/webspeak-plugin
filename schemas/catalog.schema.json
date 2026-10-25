@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Huddle-Up-Forge/webspeak-plugin/main/schemas/catalog.schema.json",
+  "title": "WebSpeak API v2 application catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "plugins"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "plugins": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "repository",
+          "metadataPath"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]{0,79}$"
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^https://github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9_.-]+$"
+          },
+          "metadataPath": {
+            "type": "string",
+            "maxLength": 160,
+            "pattern": "^(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+\\.json$"
+          }
+        }
+      }
+    }
+  }
+}

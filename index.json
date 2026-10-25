@@ -1,9 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "plugins": [
     {
+      "id": "community.p2p-file-transfer",
+      "repository": "https://github.com/Huddle-Up-Forge/webspeak-plugin-p2p-file-transfer",
+      "metadataPath": "plugin.json"
+    },
+    {
       "id": "community.watch-together",
-      "repository": "https://github.com/Huddle-Up-Forge/webspeak-plugin",
+      "repository": "https://github.com/Huddle-Up-Forge/webspeak-plugin-watch-together",
       "metadataPath": "plugin.json"
     }
   ]

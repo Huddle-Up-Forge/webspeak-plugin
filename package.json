@@ -1,0 +1,14 @@
+{
+  "name": "webspeak-plugin-catalog",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "verify": "node validate.mjs && node scripts/validate-template.mjs && node --test scripts/catalog.test.mjs",
+    "verify:remote": "node validate.mjs --remote"
+  }
+}
