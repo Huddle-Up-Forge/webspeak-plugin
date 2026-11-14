@@ -10,6 +10,11 @@
       "id": "community.watch-together",
       "repository": "https://github.com/Huddle-Up-Forge/webspeak-plugin-watch-together",
       "metadataPath": "plugin.json"
+    },
+    {
+      "id": "community.webspeak-tsmb",
+      "repository": "https://github.com/Funvvell/webspeak-plugin-tsmb",
+      "metadataPath": "plugin.json"
     }
   ]
 }
